@@ -120,11 +120,9 @@ java -cp out com.factorysim.App
 
 🚀 Ejecutar con el .jar
 java -jar Producion.jar
-```
-
 Asegúrate de ejecutar el comando desde la carpeta donde está Producion.jar.
-
-🧪 Pruebas Realizadas
+```
+## 🧪 Pruebas Realizadas
 
 ✅ Incremento consistente de producción A/B/C.
 
@@ -136,7 +134,7 @@ Asegúrate de ejecutar el comando desde la carpeta donde está Producion.jar.
 
 ✅ Estabilidad con múltiples hilos y almacenes pequeños.
 
-✅ Conclusiones
+## ✅ Conclusiones
 
 El proyecto demostró la importancia de hilos y concurrencia en la simulación de procesos industriales.
 Se logró un modelo funcional que refleja el comportamiento real de una fábrica en términos de producción, logística y almacenamiento.
@@ -161,7 +159,7 @@ U3-Proyecto-Simulador-Producción/
 └── README.md
 ```
 
-Sugerencia de .gitignore:
+## Sugerencia de .gitignore:
 
 /out/
 /bin/
@@ -170,7 +168,7 @@ Sugerencia de .gitignore:
 *.log
 
 
-📚 Referencias
+## 📚 Referencias
 
 Softtek – Introducción a la concurrencia en Java
 
