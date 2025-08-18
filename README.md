@@ -23,31 +23,38 @@ Universidad Politécnica De Victoria
 
 ## 📌 Descripción del Proyecto
 
-Este sistema es un **simulador de producción y logística** que permite modelar el funcionamiento de una fábrica con procesos de manufactura, transporte y almacenamiento.  
+Este sistema es un **simulador de producción y logística** desarrollado en **Java** que permite modelar el funcionamiento de una fábrica con procesos de manufactura, transporte y almacenamiento.  
 
-La aplicación está desarrollada en **Java** y utiliza una interfaz gráfica para que el usuario pueda:  
+El simulador cuenta con una **interfaz gráfica (Swing)** que facilita al usuario:  
 
-- 🏭 Simular procesos de **producción** con diferentes tipos de máquinas.  
-- 📦 Gestionar **productos** y su flujo dentro de la fábrica.  
-- 🚚 Administrar **vehículos de transporte** y su logística.  
-- 🏢 Controlar un **almacén** de insumos y productos terminados.  
-- 📊 Generar **reportes estadísticos** del proceso productivo.  
+- 🏭 Simular procesos de producción con diferentes tipos de máquinas.  
+- 📦 Gestionar productos y su flujo dentro de la fábrica.  
+- 🚚 Administrar vehículos de transporte y su logística.  
+- 🏢 Controlar un almacén de insumos y productos terminados.  
+- 📊 Generar reportes estadísticos del proceso productivo.  
 
 ---
 
 ## 🧠 Justificación y Algoritmo
 
-### 🔹 ¿Por qué este proyecto?  
-El objetivo es mostrar cómo la **programación orientada a objetos (POO)** puede aplicarse en un entorno real de simulación industrial, modelando entidades como máquinas, productos, vehículos y almacenes.  
+Para replicar el paralelismo real de una fábrica, se utilizó **programación concurrente y multihilo**, donde las máquinas producen mientras los vehículos transportan y los almacenes gestionan inventario de forma simultánea.  
 
-### 🔹 Lógica de Simulación  
-- Se representan **máquinas** que procesan productos.  
-- Los **vehículos** trasladan materiales entre almacén y planta.  
-- Se generan **estadísticas** de eficiencia, tiempos y recursos.  
+### 🔹 Patrones de diseño implementados
+- **Producer–Consumer** → sincroniza la producción y el consumo de productos en el almacén.  
+- **Observer** → mantiene la interfaz gráfica actualizada en tiempo real.  
 
-### 🔹 Complejidad Computacional  
+### 🔹 Arquitectura
+El sistema sigue el modelo **MVC (Modelo–Vista–Controlador)**:  
+- **Modelo**: Máquinas, productos, almacenes y vehículos.  
+- **Vista**: Ventanas gráficas de producción, logística y reportes.  
+- **Controlador**: `SimulatorController` coordina la simulación.  
+
+### 🔹 Complejidad computacional
 > **O(n × m)**  
-Donde `n` es el número de productos y `m` la cantidad de procesos o movimientos que atraviesa cada uno.  
+- `n` = número de productos.  
+- `m` = cantidad de procesos o movimientos.  
+
+Las operaciones de colas bloqueantes (`LinkedBlockingQueue`) se ejecutan en **O(1)**, garantizando eficiencia incluso con múltiples hilos.  
 
 ---
 
@@ -60,21 +67,24 @@ Donde `n` es el número de productos y `m` la cantidad de procesos o movimientos
 - `Machine` → Máquinas de producción.  
 - `ProductItem` y `ProductType` → Productos e insumos.  
 - `Vehicle` y `VehicleType` → Vehículos de transporte.  
-- `Warehouse` → Almacén de materiales y productos.  
-- `Stats` → Métricas y estadísticas.  
+- `Warehouse` → Almacén con colas bloqueantes.  
+- `Stats` → Métricas y estadísticas de simulación.  
 
 🖥️ **Paquete `ui`**  
-- `ProductionWindow` → Control de máquinas.  
-- `LogisticsWindow` → Gestión de transporte y logística.  
-- `ReportsWindow` → Visualización de estadísticas y reportes.  
+- `ProductionWindow` → Estado de máquinas y métricas.  
+- `LogisticsWindow` → Control de vehículos y entregas.  
+- `ReportsWindow` → Estadísticas acumuladas y gráficas dinámicas.  
 
 ---
 
 ## 🧰 Estructuras de Datos Utilizadas
 
-- `ArrayList` → Manejo dinámico de productos y vehículos.  
-- `HashMap` → Relación entre productos y máquinas.  
-- `TableModel` y renderers → Para mostrar tablas interactivas en la interfaz.  
+- `ArrayList` → Productos, vehículos y listas dinámicas.  
+- `HashMap` → Asociación de productos con estadísticas y máquinas.  
+- `LinkedList` / `LinkedBlockingQueue` → Flujo de productos en almacenes.  
+- `Enum` → Tipos de productos y vehículos.  
+- `TableModel` y **renderers** → Tablas interactivas en Swing.  
+- **Hilos y concurrencia** → Ejecución paralela de máquinas y vehículos.  
 
 ---
 
@@ -82,6 +92,7 @@ Donde `n` es el número de productos y `m` la cantidad de procesos o movimientos
 
 - **Java Swing** → Interfaz gráfica (`JFrame`, `JPanel`, `JTable`, `JDialog`).  
 - **AWT** → Renderizado de gráficos y tablas.  
+- **java.util.concurrent** → Hilos, `ExecutorService`, `LinkedBlockingQueue`.  
 
 ---
 
@@ -89,19 +100,20 @@ Donde `n` es el número de productos y `m` la cantidad de procesos o movimientos
 
 ### ✔️ Requisitos
 
-- Java JDK 8 o superior  
-- IDE como IntelliJ, NetBeans o Eclipse  
-- También puede ejecutarse el archivo `Producion.jar` desde la terminal  
+- Java JDK 8 o superior (recomendado JDK 11 o 17).  
+- Git 2.30 o superior.  
+- IDE como IntelliJ, Eclipse, NetBeans, VS Code.  
+- También puede ejecutarse el archivo `Producion.jar` directamente.  
 
 ### ⚙️ Pasos para compilar y ejecutar
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/usuario/Proyecto-Final-ProdSim.git
-cd Proyecto-Final-ProdSim
+git clone https://github.com/MarcosBelicoTech/U3-Proyecto-Simulador-Producci-n.git
+cd U3-Proyecto-Simulador-Producci-n/U3-Proyecto-Simulador-Producción
 
-# 2. Compilar el código
-javac -d bin src/com/factorysim/*.java
+# 2. Compilar el código fuente
+javac -d out -sourcepath src src/com/factorysim/App.java
 
 # 3. Ejecutar el programa
-java -cp bin com.factorysim.App
+java -cp out com.factorysim.App
