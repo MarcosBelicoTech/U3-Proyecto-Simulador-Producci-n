@@ -117,3 +117,72 @@ javac -d out -sourcepath src src/com/factorysim/App.java
 
 # 3. Ejecutar el programa
 java -cp out com.factorysim.App
+
+🚀 Ejecutar con el .jar
+java -jar Producion.jar
+
+
+Asegúrate de ejecutar el comando desde la carpeta donde está Producion.jar.
+
+🧪 Pruebas Realizadas
+
+✅ Incremento consistente de producción A/B/C.
+
+✅ Logística con tiempos diferenciados (camión 800–1400 ms, dron 400–900 ms).
+
+✅ Reportes de fabricados/entregados/en tránsito correctos.
+
+✅ Pausa/Reanudar hilos sin pérdida de estado.
+
+✅ Estabilidad con múltiples hilos y almacenes pequeños.
+
+✅ Conclusiones
+
+El proyecto valida el uso de POO + concurrencia para simular procesos industriales con una UI clara y responsiva. La arquitectura MVC y el diseño modular facilitan escalabilidad y futuras extensiones (más tipos de máquinas/productos, más reportes, persistencia, etc.).
+
+🏗️ Estructura del Proyecto
+U3-Proyecto-Simulador-Producción/
+├── .vscode/                     # Configuración del editor
+├── bin/                         # (opcional) compilados alternos
+├── lib/                         # JARs externos (si aplica)
+├── out/                         # Clases compiladas por javac
+├── src/
+│   └── com/
+│       └── factorysim/
+│           ├── model/          # Entidades (Machine, Vehicle, Warehouse, ...)
+│           ├── ui/             # Ventanas Swing (Production, Logistics, Reports)
+│           ├── App.java        # Main
+│           └── SimulatorController.java
+├── Producion.jar                # Ejecutable
+└── README.md
+
+
+Sugerencia de .gitignore:
+
+/out/
+/bin/
+/.vscode/
+*.class
+*.log
+
+
+📚 Referencias
+
+Softtek – Introducción a la concurrencia en Java
+
+Makigas – Concurrencia en Java
+
+Makigas – Executor en Java
+
+EADDFSI – Concurrencia en Java
+
+Java SE – Documentación oficial
+
+
+
+
+
+
+
+
+
