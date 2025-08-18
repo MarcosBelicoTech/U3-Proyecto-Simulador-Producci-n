@@ -120,7 +120,7 @@ java -cp out com.factorysim.App
 
 🚀 Ejecutar con el .jar
 java -jar Producion.jar
-
+```
 
 Asegúrate de ejecutar el comando desde la carpeta donde está Producion.jar.
 
@@ -138,8 +138,12 @@ Asegúrate de ejecutar el comando desde la carpeta donde está Producion.jar.
 
 ✅ Conclusiones
 
-El proyecto valida el uso de POO + concurrencia para simular procesos industriales con una UI clara y responsiva. La arquitectura MVC y el diseño modular facilitan escalabilidad y futuras extensiones (más tipos de máquinas/productos, más reportes, persistencia, etc.).
+El proyecto demostró la importancia de hilos y concurrencia en la simulación de procesos industriales.
+Se logró un modelo funcional que refleja el comportamiento real de una fábrica en términos de producción, logística y almacenamiento.
 
+El diseño modular y la arquitectura MVC permiten escalar el sistema fácilmente para escenarios más complejos, como añadir nuevos tipos de productos, vehículos o reportes.
+
+```plaintext
 🏗️ Estructura del Proyecto
 U3-Proyecto-Simulador-Producción/
 ├── .vscode/                     # Configuración del editor
@@ -155,7 +159,7 @@ U3-Proyecto-Simulador-Producción/
 │           └── SimulatorController.java
 ├── Producion.jar                # Ejecutable
 └── README.md
-
+```
 
 Sugerencia de .gitignore:
 
