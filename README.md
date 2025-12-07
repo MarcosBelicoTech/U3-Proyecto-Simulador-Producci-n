@@ -144,19 +144,25 @@ El diseño modular y la arquitectura MVC permiten escalar el sistema fácilmente
 ```plaintext
 🏗️ Estructura del Proyecto
 U3-Proyecto-Simulador-Producción/
-├── .vscode/                     # Configuración del editor
-├── bin/                         # (opcional) compilados alternos
-├── lib/                         # JARs externos (si aplica)
-├── out/                         # Clases compiladas por javac
-├── src/
-│   └── com/
-│       └── factorysim/
-│           ├── model/          # Entidades (Machine, Vehicle, Warehouse, ...)
-│           ├── ui/             # Ventanas Swing (Production, Logistics, Reports)
-│           ├── App.java        # Main
-│           └── SimulatorController.java
-├── Producion.jar                # Ejecutable
-└── README.md
+📁 **simulador_automatas/**
+│
+├── 🟡 **main.py**  
+│   └─ _Punto de inicio del sistema_
+│
+├── 📁 **gui/**  
+│   ├── 🟢 **app.py** – Ventana principal del simulador  
+│   ├── 🟢 **afd_tab.py** – Pestaña para AFD  
+│   ├── 🟢 **afnd_tab.py** – Pestaña para AFND  
+│   └── 🟢 **compare_tab.py** – Comparación AFD vs AFND  
+│
+├── 📁 **automata/**  
+│   ├── 🔵 **dfa.py** – Implementación del AFD  
+│   └── 🔵 **nfa.py** – Implementación del AFND  
+│
+└── 📁 **utils/**  
+    ├── 🟣 **visualizer.py** – Genera gráficas del autómata  
+    └── 🟣 **helpers.py** – Funciones auxiliares  
+
 ```
 
 ## Sugerencia de .gitignore:
