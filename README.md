@@ -1,4 +1,4 @@
-# U3 Proyecto Simulador Producción
+# U3 Proyecto Simulador Produccion
 # Simulador de Producción y Logística
 
 Universidad Politécnica De Victoria  
